@@ -116,6 +116,7 @@ const LocationSearch: React.FC<LocationSearchProps> = ({
   label = <FormattedMessage id="place-components.label.autocompleteAddress" />,
   onSelectAddress,
 }) => {
+  const [canShow, setCanShow] = useState(true)
   const [searchTerm, setSearchTerm] = useState('')
   const [displayedSearchTerm, setDisplayedSearchTerm] = useState('')
   const inputWrapperRef = useRef<HTMLDivElement>(null)
@@ -155,6 +156,7 @@ const LocationSearch: React.FC<LocationSearchProps> = ({
 
   useEffect(() => {
     if (data) {
+      setCanShow(false)
       setAddress((prevAddress) => ({
         ...prevAddress,
         ...data.address,
@@ -195,6 +197,7 @@ const LocationSearch: React.FC<LocationSearchProps> = ({
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(event.target.value)
     setDisplayedSearchTerm(event.target.value)
+    setCanShow(true)
   }
 
   const handleClick = () => {
@@ -228,7 +231,7 @@ const LocationSearch: React.FC<LocationSearchProps> = ({
                   tabIndex={-1}
                   className="flex pa3 na3 pointer outline-0 c-muted-3 hover-gray"
                   onClick={handleClick}
-                  onKeyPress={() => {}}
+                  onKeyPress={() => { }}
                 >
                   <IconClear />
                 </span>
@@ -240,7 +243,7 @@ const LocationSearch: React.FC<LocationSearchProps> = ({
             onKeyDown={handleKeyDown}
           />
         </div>
-        {debouncedSearchTerm.trim().length ? (
+        {debouncedSearchTerm.trim().length && canShow ? (
           <ComboboxPopover
             position={(_targetRect, popoverRect) =>
               positionMatchWidth(
