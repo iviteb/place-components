@@ -110,10 +110,12 @@ const renderSuggestionText = ({
 interface LocationSearchProps {
   label?: ReactNode | string
   onSelectAddress?: (address: Address) => void
+  placeholder?: string
 }
 
 const LocationSearch: React.FC<LocationSearchProps> = ({
   label = <FormattedMessage id="place-components.label.autocompleteAddress" />,
+  placeholder,
   onSelectAddress,
 }) => {
   const [canShow, setCanShow] = useState(true)
@@ -231,7 +233,7 @@ const LocationSearch: React.FC<LocationSearchProps> = ({
                   tabIndex={-1}
                   className="flex pa3 na3 pointer outline-0 c-muted-3 hover-gray"
                   onClick={handleClick}
-                  onKeyPress={() => { }}
+                  onKeyPress={() => {}}
                 >
                   <IconClear />
                 </span>
@@ -239,6 +241,7 @@ const LocationSearch: React.FC<LocationSearchProps> = ({
             }
             disabled={loading}
             value={displayedSearchTerm}
+            placeholder={placeholder}
             onChange={handleChange}
             onKeyDown={handleKeyDown}
           />
