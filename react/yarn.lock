@@ -4060,9 +4060,9 @@ jsprim@^1.2.2:
     json-schema "0.2.3"
     verror "1.10.0"
 
-"kfcromania.place-components@http://kfcromania.vtexassets.com/_v/public/typings/v1/kfcromania.place-components@0.0.1/public/@types/kfcromania.place-components":
-  version "0.0.1"
-  resolved "http://kfcromania.vtexassets.com/_v/public/typings/v1/kfcromania.place-components@0.0.1/public/@types/kfcromania.place-components#09a5233df651ebd7cd911d73d6dd72cd0b13b07e"
+"kfcromania.place-components@http://kfcromania.vtexassets.com/_v/public/typings/v1/kfcromania.place-components@0.0.2/public/@types/kfcromania.place-components":
+  version "0.0.2"
+  resolved "http://kfcromania.vtexassets.com/_v/public/typings/v1/kfcromania.place-components@0.0.2/public/@types/kfcromania.place-components#552c1cb75b5479fbc2c8eb982b3c437de6de0271"
 
 kind-of@^3.0.2, kind-of@^3.0.3, kind-of@^3.2.0:
   version "3.2.2"
@@ -5940,6 +5940,10 @@ vtex-tachyons@^3.2.0:
 "vtex.render-runtime@http://vtex.vtexassets.com/_v/public/typings/v1/vtex.render-runtime@8.134.2/public/@types/vtex.render-runtime":
   version "8.134.2"
   resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.render-runtime@8.134.2/public/@types/vtex.render-runtime#ae69e2b2a471291c6c6b155e17510150fbfc2d0e"
+
+"vtex.store-icons@http://vtex.vtexassets.com/_v/public/typings/v1/vtex.store-icons@0.18.0/public/@types/vtex.store-icons":
+  version "0.18.0"
+  resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.store-icons@0.18.0/public/@types/vtex.store-icons#0ee94d549aa283ce3a13ab987c13eac4fdfd1bba"
 
 "vtex.styleguide@http://vtex.vtexassets.com/_v/public/typings/v1/vtex.styleguide@9.146.9/public/@types/vtex.styleguide":
   version "9.146.9"

@@ -1,12 +1,6 @@
 import React, { useState, useRef, useEffect, ReactNode } from 'react'
 import { FormattedMessage } from 'react-intl'
-import {
-  Input,
-  IconSearch,
-  IconClear,
-  IconWarning,
-  Spinner,
-} from 'vtex.styleguide'
+import { Input, IconWarning, Spinner } from 'vtex.styleguide'
 import { positionMatchWidth } from '@reach/popover'
 import { useAddressContext } from 'vtex.address-context/AddressContext'
 import { useLazyQuery, useQuery } from 'react-apollo'
@@ -18,7 +12,9 @@ import {
   QueryAddressArgs,
   QueryAddressSuggestionsArgs,
 } from 'vtex.geolocation-graphql-interface'
+import { IconSearch } from 'vtex.store-icons'
 
+import IconClear from './components/IconClear'
 import PROVIDER_LOGO from './graphql/providerLogo.graphql'
 import SESSION_TOKEN from './graphql/sessionToken.graphql'
 import ADDRESS_SUGGESTIONS from './graphql/addressSuggestions.graphql'
