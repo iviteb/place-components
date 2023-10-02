@@ -7,11 +7,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.0.2] - 2023-10-02 - kfcromania
+
 ### Changed
 
 - Changed Search & Clear Icons
 
-## [0.0.2] - 2021-09-28 - kfcromania
+## [0.0.2] - 2023-09-28 - kfcromania
 
 ### Added
 
