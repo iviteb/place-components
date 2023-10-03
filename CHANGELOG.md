@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Added
+
+- Added SuffixContent Prop
+- Added onInputChange Prop
+
+### Fixed
+
+- Fixed Popover
+
 ## [0.0.2] - 2023-10-02 - kfcromania
 
 ### Changed

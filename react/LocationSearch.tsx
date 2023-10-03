@@ -107,18 +107,22 @@ interface LocationSearchProps {
   label?: ReactNode | string
   onSelectAddress?: (address: Address) => void
   placeholder?: string
+  SuffixContent?: JSX.Element
+  onInputChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
 }
 
 const LocationSearch: React.FC<LocationSearchProps> = ({
   label = <FormattedMessage id="place-components.label.autocompleteAddress" />,
   placeholder,
+  SuffixContent,
   onSelectAddress,
+  onInputChange,
 }) => {
   const [canShow, setCanShow] = useState(true)
   const [searchTerm, setSearchTerm] = useState('')
   const [displayedSearchTerm, setDisplayedSearchTerm] = useState('')
   const inputWrapperRef = useRef<HTMLDivElement>(null)
-  const { setAddress } = useAddressContext()
+  const { address, setAddress } = useAddressContext()
   const providerLogo = useProviderLogo()
   const debouncedSearchTerm = useDebouncedValue(
     searchTerm,
@@ -153,13 +157,21 @@ const LocationSearch: React.FC<LocationSearchProps> = ({
   }, [sessionTokenError])
 
   useEffect(() => {
-    if (data) {
+    const { city, street, number } = address ?? {}
+    const { address: dataAddress } = data ?? {}
+
+    if (
+      dataAddress &&
+      (dataAddress.city !== city ||
+        dataAddress.street !== street ||
+        dataAddress.number !== number)
+    ) {
       setCanShow(false)
       setAddress((prevAddress) => ({
         ...prevAddress,
-        ...data.address,
+        ...dataAddress,
       }))
-      onSelectAddress?.(data.address)
+      onSelectAddress?.(dataAddress)
     }
 
     if (error) {
@@ -196,6 +208,7 @@ const LocationSearch: React.FC<LocationSearchProps> = ({
     setSearchTerm(event.target.value)
     setDisplayedSearchTerm(event.target.value)
     setCanShow(true)
+    onInputChange?.(event)
   }
 
   const handleClick = () => {
@@ -221,18 +234,21 @@ const LocationSearch: React.FC<LocationSearchProps> = ({
               loading ? (
                 <Spinner size={20} />
               ) : searchTerm.trim().length ? (
-                <span
-                  data-testid="location-search-clear"
-                  role="button"
-                  // the input can be cleared by pressing the esc key,
-                  // so the clear button should not be tabbable
-                  tabIndex={-1}
-                  className="flex pa3 na3 pointer outline-0 c-muted-3 hover-gray"
-                  onClick={handleClick}
-                  onKeyPress={() => {}}
-                >
-                  <IconClear />
-                </span>
+                <>
+                  <span
+                    data-testid="location-search-clear"
+                    role="button"
+                    // the input can be cleared by pressing the esc key,
+                    // so the clear button should not be tabbable
+                    tabIndex={-1}
+                    className="flex pa3 na3 pointer outline-0 c-muted-3 hover-gray"
+                    onClick={handleClick}
+                    onKeyPress={() => {}}
+                  >
+                    <IconClear />
+                  </span>
+                  {SuffixContent && SuffixContent}
+                </>
               ) : null
             }
             disabled={loading}
@@ -250,6 +266,7 @@ const LocationSearch: React.FC<LocationSearchProps> = ({
                 popoverRect
               )
             }
+            portal={false}
           >
             {suggestions.length > 0 ? (
               <ComboboxList>

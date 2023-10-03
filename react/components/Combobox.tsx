@@ -32,7 +32,7 @@ export const ComboboxPopover = forwardRef<
       className={classNames(
         className,
         styles.popover,
-        'bg-base pv3 mt2 br2 ba bw1 b--muted-4 absolute outline-0'
+        'w-100 bg-base pa5 br0 absolute outline-0'
       )}
     />
   )
