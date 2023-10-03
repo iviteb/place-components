@@ -5,15 +5,14 @@ import style from './IconClear.css'
 
 interface IconProps {
   size?: number
-  className?: string
 }
 
-const IconClear = ({ size, className }: IconProps) => {
+const IconClear = ({ size }: IconProps) => {
   return (
     <Icon
       id="sti-close--filled"
       size={size}
-      activeClassName={`${style.clearIcon} ${className}`}
+      activeClassName={`${style.clearIcon}`}
     />
   )
 }
