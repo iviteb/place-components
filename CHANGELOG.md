@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.0.4] - 2023-10-03 - kfcromania
+
 ### Added
 
 - Added SuffixContent Prop
@@ -16,7 +18,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - Fixed Popover
 
-## [0.0.2] - 2023-10-02 - kfcromania
+## [0.0.3] - 2023-10-02 - kfcromania
 
 ### Changed
 
